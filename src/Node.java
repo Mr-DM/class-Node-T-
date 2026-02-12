@@ -8,6 +8,7 @@ public class Node<T> {
         _value = value;
         _next = null;
     }
+    //public Node(T)
 
     public T getValue() {return _value;}
     public void setValue(T value) {_value = value;}
@@ -69,7 +70,22 @@ public class Node<T> {
         p.setNext(p.getNext().getNext());
         return this;
     }
-    
+
+    public Node<T> addTo (int index, T value){
+        if(index == 0){
+            return this.addFirst(value);
+        }
+        for(int i = 0;i < index - 1; i++){
+            this.setNext(this.getNext());
+        }
+        Node<T> newNode = new Node<>(value);
+        newNode.setNext(this.getNext());
+        this.setNext(newNode);
+        return this;
+    }
+
+
+
     
 
     // int - > Integer
