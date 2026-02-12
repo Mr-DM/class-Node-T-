@@ -1,5 +1,3 @@
-
-
 public class Node<T> {
     private T _value;
     private Node<T> _next;
@@ -84,7 +82,27 @@ public class Node<T> {
         return this;
     }
 
+    public Node<T> opList()
+    {
+        Node<T> p = this.getNext(), newList = new Node<>(this.getValue());
+        while (p != null) {
+            newList = newList.addFirst(p.getValue());
+            p = p.getNext();
+        }
+        return newList;
+    }
 
+    public int size(){
+        Node<T> p = this;
+        int cnt = 0;
+        while (p != null) {
+            cnt++;
+            p = p.getNext();
+        }
+        return cnt;
+    }
+
+    public T centerValue
 
     
 
