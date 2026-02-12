@@ -18,10 +18,12 @@ public class Node<T> {
         return _value + " -> " + _next;
     }
 
+    // Return true if have next value
     public boolean HasNext(){
         return _next != null;
     }
 
+    // Print all Value in list
     public void PrintValues(){
         Node<T> p = this;
         while (p != null) {
@@ -29,8 +31,9 @@ public class Node<T> {
             p = p.getNext();
         }
         System.out.println("null");
-    } 
+    }
 
+    // Add to last value
     public void addlast(T value){
         Node<T> p = this;
         while (p.getNext() != null) {
@@ -38,7 +41,7 @@ public class Node<T> {
         }
         p.setNext(new Node<>(value));
     }
-
+    // Add to strat
     public Node<T> addFirst(T value){
         Node<T> h = this;
         Node<T> p = new Node<>(value);
@@ -47,6 +50,7 @@ public class Node<T> {
         return h;
     }
 
+    // Remove value in index
     public Node<T> removeFrom(int index){
         if (index == 0) {
             return this.getNext();
@@ -69,6 +73,7 @@ public class Node<T> {
         return this;
     }
 
+    // add Value at index 
     public Node<T> addTo (int index, T value){
         if(index == 0){
             return this.addFirst(value);
@@ -81,7 +86,7 @@ public class Node<T> {
         this.setNext(newNode);
         return this;
     }
-
+    // return revers of list 
     public Node<T> opList()
     {
         Node<T> p = this.getNext(), newList = new Node<>(this.getValue());
@@ -92,6 +97,7 @@ public class Node<T> {
         return newList;
     }
 
+    // return size of list
     public int size(){
         Node<T> p = this;
         int cnt = 0;
@@ -101,14 +107,25 @@ public class Node<T> {
         }
         return cnt;
     }
+    // Add value to center of the list
+    public void addTomiddle(T value)
+    {
+        Node<T> newNode = new Node<>(value) , p = this;
+        int len = this.size(); 
+        for(int i = 0; i<len/2-1; i++){
+            p = p.getNext();
+        }
+        newNode.setNext(p.getNext());
+        p.setNext(newNode);
+    }
 
-    public T centerValue
 
     
-
-    // int - > Integer
-    // double -> Double
-    // char -> Character
-    // boolean -> Boolean
-    // T -> Integer, Double, Character, Boolean
+    /*  Node <T> -->  T -> Type of list
+    * int - > Integer
+    * double -> Double
+    * char -> Character
+    * boolean -> Boolean
+     
+    */
 }

@@ -5,6 +5,9 @@ public class App {
         
         */ 
 
+
+        
+
         //Create new List
         Node<Character> node1 = new Node<>('a');
 
@@ -15,13 +18,16 @@ public class App {
         
         // add to first
         node1 = node1.addFirst('g');
-
+        // a -> b -> c -> d -> null ==> g -> a -> b -> c -> d -> null
         // Print all Value in list
+
         node1.PrintValues();
+        // g -> a -> b -> c -> d -> null
 
         // Remove From -> index  ==> remove value at index
         node1.removeFrom(2);
-        
+        //g -> a -> b -> c -> d -> null ==> g -> a -> c -> d -> null
+
         node1.PrintValues();
     }
 
