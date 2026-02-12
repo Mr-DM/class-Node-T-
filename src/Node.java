@@ -1,4 +1,4 @@
-import org.w3c.dom.Node;
+
 
 public class Node<T> {
     private T _value;
@@ -40,7 +40,36 @@ public class Node<T> {
         p.setNext(new Node<>(value));
     }
 
+    public Node<T> addFirst(T value){
+        Node<T> h = this;
+        Node<T> p = new Node<>(value);
+        p.setNext(h);
+        h = p;
+        return h;
+    }
 
+    public Node<T> removeFrom(int index){
+        if (index == 0) {
+            return this.getNext();
+        }
+        Node<T> p = this;
+        int cnt = 0;
+        while (p != null) {
+            cnt++;
+            p = p.getNext();
+        }
+        p = this;
+
+        if ( cnt <= index)
+            return null;
+
+        for(int i = 0; i < index - 1 ; i++){
+            p = p.getNext();
+        }
+        p.setNext(p.getNext().getNext());
+        return this;
+    }
+    
     
 
     // int - > Integer
